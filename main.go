@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	var (
+		age  int
+		name string
+	)
+	fmt.Scan(&age, &name)
+	fmt.Printf("My name is: %s\nMy age is: %d \n", name, age)
+
+	fmt.Fscan(os.Stdin, &age)
+	fmt.Printf("New age is: %d\n", age)
 }
