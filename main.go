@@ -2,17 +2,33 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
 	var (
-		age  int
-		name string
+		x1 int
+		y1 int
+		x2 int
+		y2 int
 	)
-	fmt.Scan(&age, &name)
-	fmt.Printf("My name is: %s\nMy age is: %d \n", name, age)
+	fmt.Scan(&x1, &y1, &x2, &y2)
+	var isValid bool
 
-	fmt.Fscan(os.Stdin, &age)
-	fmt.Printf("New age is: %d\n", age)
+	if x1+2 == x2 && (y1+1 == y2 || y1-1 == y2) {
+		isValid = true
+	}
+	if x1-2 == x2 && (y1+1 == y2 || y1-1 == y2) {
+		isValid = true
+	}
+	if y1+2 == y2 && (x1+1 == x2 || x1-1 == x2) {
+		isValid = true
+	}
+	if y1-2 == y2 && (x1+1 == x2 || x1-1 == x2) {
+		isValid = true
+	}
+	if isValid {
+		fmt.Println("ДА")
+	} else {
+		fmt.Println("НЕТ")
+	}
 }
